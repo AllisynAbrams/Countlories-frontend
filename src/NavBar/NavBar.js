@@ -1,28 +1,33 @@
-import React from 'react'
-import {Navbar, Nav} from 'react-bootstrap'
+import React, {useState} from 'react'
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap'
 import './navbar.scss'
 
 const NavBar = () => {
+
+	const [collapsed, setCollapsed] = useState(true)
+
+	const toggleNavbar = () => setCollapsed(!collapsed)
+
 	return (
 		<>
-			<Navbar className='color-nav' expand='lg' sticky='top'>
-				<Navbar.Brand href='/'>
+			<Navbar color='faded' light className='color-nav'>
+				<NavbarBrand href='/' className='mr-auto'>
 					<img src='https://i.imgur.com/mL0La8x.png' alt='brand logo' />
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
-					<Nav className='mr-auto'>
-						<Nav.Link className='link' href='/'>
-							Home
-						</Nav.Link>
-						<Nav.Link className='link' href='/about'>
-							About
-						</Nav.Link>
-						<Nav.Link className='link' href='/team'>
-							Team
-						</Nav.Link>
+				</NavbarBrand>
+				<NavbarToggler onClick={toggleNavbar} className='mr-2' />
+				<Collapse isOpen={!collapsed} navbar>
+					<Nav navbar>
+						<NavItem>
+							<NavLink href='/'>Home</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href='/team'>Team</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href='/about'>About</NavLink>
+						</NavItem>
 					</Nav>
-				</Navbar.Collapse>
+				</Collapse>
 			</Navbar>
 		</>
 	)
