@@ -10,12 +10,12 @@
 ## Wireframes
 
 - [Mobile](https://res.cloudinary.com/dv7inaqe9/image/upload/v1603467406/Countlories%20Mobile.jpg)
-- [Tablet]()
-- [Desktop]()
-- [React Architecture]()
+- [Tablet](https://res.cloudinary.com/dv7inaqe9/image/upload/v1603469251/Countlories%20Desktop%20%2B%20Tablet.jpg)
+- [Desktop](https://res.cloudinary.com/dv7inaqe9/image/upload/v1603469251/Countlories%20Desktop%20%2B%20Tablet.jpg)
+- [React Architecture](https://docs.google.com/drawings/d/1OJ1gjyPHVz2NkaaC0Tm9NX4Gzth4a2gG0oQzTTFmLUQ/edit?ts=5f922ae1)
 
 ## Project Description
-
+Countlories is an all purpose food/calorie tracker. This response web app help user track and count their daily food and calorie consumption by displaying food/calories and total calories by day. It incorporates a form which allows a user to add a new food and its calories to a given day, as well as edit a food. As a user adds new foods, the daily total calorie intake will calculate and increase. This app can be used to track foods/calories as consumed or as a weekly food/calorie planner.
 
 
 ## Time/Priority Matrix
@@ -109,7 +109,6 @@
 ## Additional Libraries Used
 
 - Sass
+- Reactstrap
 
 ## Issues
-
-- My Team
