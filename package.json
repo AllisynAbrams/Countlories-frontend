@@ -8,17 +8,17 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
     "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "reactstrap": "^8.6.0",
     "sass": "^1.27.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI= react-scripts build",
+    "build": "CI= react-scripts build && echo '/* /index.html 200' | cat >build/_redirects ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
