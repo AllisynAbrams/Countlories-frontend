@@ -16,7 +16,7 @@ function App() {
 					<Team />
 				</Route>
 				<Route exact path='/about'>
-					
+					<About />
 				</Route>
 			</Switch>
 		</div>
