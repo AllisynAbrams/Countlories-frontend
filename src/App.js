@@ -4,6 +4,7 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './NavBar/NavBar'
 import Team from './Team/Team'
+import About from './About/About'
 
 function App() {
   return (
