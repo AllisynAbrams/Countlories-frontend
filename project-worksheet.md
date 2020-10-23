@@ -3,13 +3,13 @@
 ## Project Links
 
 - [Backend Repo](https://github.com/AllisynAbrams/Countlories-backend)
-- [Frontend Repo]()
+- [Frontend Repo](https://github.com/AllisynAbrams/Countlories-frontend)
 - [Backend Deployment]()
 - [Frontend Deployment]()
 
 ## Wireframes
 
-- [Mobile]()
+- [Mobile](https://res.cloudinary.com/dv7inaqe9/image/upload/v1603467406/Countlories%20Mobile.jpg)
 - [Tablet]()
 - [Desktop]()
 - [React Architecture]()
