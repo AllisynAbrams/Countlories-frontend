@@ -1,8 +1,44 @@
-div {
-    h1{
-        
-    }
-    img{
+.about {
+	width: 80%;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
 
+	h1 {
+		color: #6252cb;
+		font-family: 'Raleway', sans-serif;
+		background-color: #1e1e1e;
+		border-radius: 10px;
+		margin: 10px;
+		padding: 15px;
+	}
+
+	p {
+		color: white;
+		font-family: 'Quicksand', sans-serif;
+		background-color: #1e1e1e;
+		border-radius: 10px;
+		margin: 10px;
+		padding: 15px;
+	}
+	img {
+		border-radius: 10px;
+		width: 100%;
+		margin: 10px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (min-width:768px) {
+    .about {
+        p {
+            font-size: 20px;
+            padding: 25px;
+        }
+
+        h1 { 
+            font-size: 34px;
+        }
     }
 }
