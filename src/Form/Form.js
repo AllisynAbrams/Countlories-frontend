@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Form = (props) => {
-    const [formData, setFormData] = React.useState(props.emptyFood); 
+    const [formData, setFormData] = React.useState(props.food); 
 
     const handleSubmit = (e)=>{
         e.preventDefault();

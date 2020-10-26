@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom'
 import Form from '../Form/Form'
 import Food from '../Food/Food'
 import './days.scss'
@@ -11,10 +11,10 @@ const Days = (props) => {
 		foodItem: String,
 		calories: Number,
 		time: String,
-    }
-    
-    const [food, setFood] = useState([])
-    const [selectedFood, setSelectedFood] = useState(emptyFood)
+	}
+
+	const [food, setFood] = useState([])
+	const [selectedFood, setSelectedFood] = useState(emptyFood)
 
 	const getFoods = () => {
 		fetch(url + '/food/')
@@ -30,36 +30,34 @@ const Days = (props) => {
 	}, [])
 
 	const handleCreate = (food) => {
-		fetch(url + '/food/', {
+		fetch(url, {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		})
-		.then(response => getFoods)
+		}).then(() => getFoods())
 	}
 
 	const handleUpdate = (food) => {
 		fetch(url + '/food/' + food._id, {
-			method: 'put', 
+			method: 'put',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(food)
-		})
-		.then(response => getFoods)
+			body: JSON.stringify(food),
+		}).then(() => getFoods())
 	}
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then((res) => getFoods())
-    }
-    
-    const selectFood = food => {
-        setSelectedFood(food)
-    }
+		}).then(() => getFoods())
+	}
+
+	const selectFood = (food) => {
+		setSelectedFood(food)
+	}
 
 	let displayDays = <h1>Loading...</h1>
 	if (props.days[0]) {
@@ -67,14 +65,33 @@ const Days = (props) => {
 			return (
 				<div className='day' key={days._id}>
 					<div className='day-header'>
-						<h2>{days.day}</h2>
+						<p>{days.day}</p>
 						<p>test date</p>
-						<h4>+</h4>
 						<h4>{days.date}</h4>
 					</div>
+					<Link to='/create'>
+						<p className='add'>+</p>
+					</Link>
 					<div className='day-body'>
-						<p>Total</p>
-						<p>{days.food}</p>
+						<p className='total'>Total</p>
+						<p className='total-amount'>###</p>
+						<p className='foods'>Food</p>
+						<p className='calories'>Calories</p>
+						{days.food.map((food) => {
+							return (
+								<>
+									<p className='foods'>{food.foodItem}</p>
+									<p className='calories'>{food.calories}</p>
+									<p className='edit'>Edit</p>
+									<p className='x'>X</p>
+								</>
+							)
+						})}
+						{/* <p className='test1'>Food Item</p> */}
+						<p className='test2'>###</p>
+						{/* <p className='edit'>Edit</p>
+						<p className='x'>X</p> */}
+						{/* <p>{days.food}</p> */}
 					</div>
 				</div>
 			)
@@ -102,30 +119,39 @@ const Days = (props) => {
 			/> */}
 
 			<Switch>
-				<Food
+				{/* <Food
 					food={food}
 					selectFood={selectFood}
 					deleteFood={deleteFood}
 					getFoods={getFoods}
-				/>
-				<Route 
-					exact 
+				/> */}
+				<Route
+					exact
 					path='/create'
-					render={(rp)=>(
-						<Form {...rp} label='create' food={emptyFood} handleSubmit={handleCreate} />
+					render={(rp) => (
+						<Form
+							{...rp}
+							label='create'
+							food={emptyFood}
+							handleSubmit={handleCreate}
+						/>
 					)}
 				/>
-				<Route 
-					exact 
-					path = '/edit'
-					render = {(rp) => (
-						<Form {...rp} label='update' food={selectedFood} handleSubmit={handleUpdate}/>
+				<Route
+					exact
+					path='/edit'
+					render={(rp) => (
+						<Form
+							{...rp}
+							label='update'
+							food={selectedFood}
+							handleSubmit={handleUpdate}
+						/>
 					)}
 				/>
-				
 			</Switch>
 		</div>
-	);
+	)
 }
 
 export default Days
