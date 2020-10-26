@@ -30,13 +30,13 @@ const Days = (props) => {
 	}, [])
 
 	const handleCreate = (food) => {
-		fetch(url + '/food/', {
+		fetch(url, {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then((response) => getFoods)
+		}).then(() => getFoods())
 	}
 
 	const handleUpdate = (food) => {
@@ -46,13 +46,13 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then((response) => getFoods)
+		}).then(() => getFoods())
 	}
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then((res) => getFoods())
+		}).then(() => getFoods())
 	}
 
 	const selectFood = (food) => {
@@ -65,14 +65,33 @@ const Days = (props) => {
 			return (
 				<div className='day' key={days._id}>
 					<div className='day-header'>
-						<h2>{days.day}</h2>
+						<p>{days.day}</p>
 						<p>test date</p>
-						<h4>+</h4>
 						<h4>{days.date}</h4>
 					</div>
+					<Link to='/create'>
+						<p className='add'>+</p>
+					</Link>
 					<div className='day-body'>
-						<p>Total</p>
-						<p>{days.food}</p>
+						<p className='total'>Total</p>
+						<p className='total-amount'>###</p>
+						<p className='foods'>Food</p>
+						<p className='calories'>Calories</p>
+						{days.food.map((food) => {
+							return (
+								<>
+									<p className='foods'>{food.foodItem}</p>
+									<p className='calories'>{food.calories}</p>
+									<p className='edit'>Edit</p>
+									<p className='x'>X</p>
+								</>
+							)
+						})}
+						{/* <p className='test1'>Food Item</p> */}
+						<p className='test2'>###</p>
+						{/* <p className='edit'>Edit</p>
+						<p className='x'>X</p> */}
+						{/* <p>{days.food}</p> */}
 					</div>
 				</div>
 			)
@@ -100,12 +119,12 @@ const Days = (props) => {
 			/> */}
 
 			<Switch>
-				<Food
+				{/* <Food
 					food={food}
 					selectFood={selectFood}
 					deleteFood={deleteFood}
 					getFoods={getFoods}
-				/>
+				/> */}
 				<Route
 					exact
 					path='/create'
