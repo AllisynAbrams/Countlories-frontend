@@ -28,8 +28,8 @@ const Days = (props) => {
 		getFoods()
 	}, [])
 
-	const handleCreate = (food) => {
-		fetch(url, {
+	const handleCreate = (day, food) => {
+		fetch(url + day._id, {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
@@ -92,37 +92,7 @@ const Days = (props) => {
 		})
 	}
 
-	return (
-		<div className='Days'>
-			{displayDays}
-			<Switch>
-				<Route
-					exact
-					path='/create'
-					render={(rp) => (
-						<Form
-							{...rp}
-							label='create'
-							food={emptyFood}
-							handleSubmit={handleCreate}
-						/>
-					)}
-				/>
-				<Route
-					exact
-					path='/edit'
-					render={(rp) => (
-						<Form
-							{...rp}
-							label='update'
-							food={selectedFood}
-							handleSubmit={handleUpdate}
-						/>
-					)}
-				/>
-			</Switch>
-		</div>
-	)
+	return <div className='Days'>{displayDays}</div>
 }
 
 export default Days
