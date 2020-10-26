@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Route, Link, Switch} from 'react-router-dom'
 import Form from '../Form/Form'
 import Food from '../Food/Food'
 import './days.scss'
@@ -71,7 +72,7 @@ const Days = (props) => {
 	return (
 		<div className='Days'>
 			{displayDays}
-			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
+			<Form emptyFood={emptyFood} handleSubmit={handleCreate}/>
 			<Food food={food} selectFood={selectedFood} deleteFood={deleteFood}/>
 		</div>
 	)
