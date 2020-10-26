@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Route, Link, Switch } from 'react-router-dom'
 import Form from '../Form/Form'
 import Food from '../Food/Food'
 import './days.scss'
@@ -10,17 +11,17 @@ const Days = (props) => {
 		foodItem: String,
 		calories: Number,
 		time: String,
-    }
-    
-    const [food, setFood] = useState([])
-    const [selectFood, setSelectFood] = useState
+	}
+
+	const [food, setFood] = useState([])
+	const [selectedFood, setSelectedFood] = useState(emptyFood)
 
 	const getFoods = () => {
 		fetch(url + '/food/')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('this is data', data)
-				setFood(data.data)
+				setFood(data)
 			})
 	}
 
@@ -35,13 +36,27 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		})
+		}).then((response) => getFoods)
+	}
+
+	const handleUpdate = (food) => {
+		fetch(url + '/food/' + food._id, {
+			method: 'put',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(food),
+		}).then((response) => getFoods)
 	}
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
 		}).then((res) => getFoods())
+	}
+
+	const selectFood = (food) => {
+		setSelectedFood(food)
 	}
 
 	let displayDays = <h1>Loading...</h1>
@@ -67,8 +82,55 @@ const Days = (props) => {
 	return (
 		<div className='Days'>
 			{displayDays}
+
 			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
-			{/* <Food food={food} /> */}
+
+			{/* <Route
+				exact
+				path='/'
+				render={(rp) => (
+					<Food
+						{...rp}
+						food={food}
+						selectFood={selectFood}
+						deleteFood={deleteFood}
+						getFoods={getFoods}
+					/>
+				)}
+			/> */}
+
+			<Switch>
+				<Food
+					food={food}
+					selectFood={selectFood}
+					deleteFood={deleteFood}
+					getFoods={getFoods}
+				/>
+				<Route
+					exact
+					path='/create'
+					render={(rp) => (
+						<Form
+							{...rp}
+							label='create'
+							food={emptyFood}
+							handleSubmit={handleCreate}
+						/>
+					)}
+				/>
+				<Route
+					exact
+					path='/edit'
+					render={(rp) => (
+						<Form
+							{...rp}
+							label='update'
+							food={selectedFood}
+							handleSubmit={handleUpdate}
+						/>
+					)}
+				/>
+			</Switch>
 		</div>
 	)
 }
