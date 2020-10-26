@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react'
 import './about.scss'
 import { motion } from 'framer-motion'
 
 const About = () => {
 	const [isToggled, setIsToggled] = useState(0)
+
 
 	return (
 		<div className='about'>
