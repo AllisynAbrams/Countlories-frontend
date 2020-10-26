@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Link, Switch } from 'react-router-dom';
 import Form from '../Form/Form'
 import Food from '../Food/Food'
 import './days.scss'
@@ -14,14 +13,14 @@ const Days = (props) => {
     }
     
     const [food, setFood] = useState([])
-    const [selectedFood, setSelectedFood] = useState(emptyFood)
+    const [selectFood, setSelectFood] = useState
 
 	const getFoods = () => {
 		fetch(url + '/food/')
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('this is data', data)
-				setFood(data)
+				setFood(data.data)
 			})
 	}
 
@@ -43,11 +42,7 @@ const Days = (props) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
 		}).then((res) => getFoods())
-    }
-    
-    const selectFood = food => {
-        setSelectedFood(food)
-    }
+	}
 
 	let displayDays = <h1>Loading...</h1>
 	if (props.days[0]) {
@@ -73,31 +68,9 @@ const Days = (props) => {
 		<div className='Days'>
 			{displayDays}
 			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
-
-			{/* <Route
-				exact
-				path='/'
-				render={(rp) => (
-					<Food
-						{...rp}
-						food={food}
-						selectFood={selectFood}
-						deleteFood={deleteFood}
-						getFoods={getFoods}
-					/>
-				)}
-			/> */}
-
-			
-					<Food
-						food={food}
-						selectFood={selectFood}
-						deleteFood={deleteFood}
-						getFoods={getFoods}
-					/>
-			
+			{/* <Food food={food} /> */}
 		</div>
-	);
+	)
 }
 
 export default Days
