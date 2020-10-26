@@ -37,7 +37,7 @@ const Days = (props) => {
 			},
 			body: JSON.stringify(food),
 		})
-		.then(respone => getFoods)
+		.then(response => getFoods)
 	}
 
 	const handleUpdate = (food) => {
@@ -48,7 +48,7 @@ const Days = (props) => {
 			},
 			body: JSON.stringify(food)
 		})
-		.then(respone => getFoods)
+		.then(response => getFoods)
 	}
 
 	const deleteFood = (food) => {
