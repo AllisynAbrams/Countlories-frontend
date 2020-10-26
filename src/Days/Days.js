@@ -37,6 +37,18 @@ const Days = (props) => {
 			},
 			body: JSON.stringify(food),
 		})
+		.then(respone => getFoods)
+	}
+
+	const handleUpdate = (food) => {
+		fetch(url + '/food/' + food._id, {
+			method: 'put', 
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(food)
+		})
+		.then(respone => getFoods)
 	}
 
 	const deleteFood = (food) => {
@@ -88,13 +100,30 @@ const Days = (props) => {
 				)}
 			/> */}
 
-			
-					<Food
-						food={food}
-						selectFood={selectFood}
-						deleteFood={deleteFood}
-						getFoods={getFoods}
-					/>
+			<Switch>
+				<Food
+					food={food}
+					selectFood={selectFood}
+					deleteFood={deleteFood}
+					getFoods={getFoods}
+				/>
+				<Route 
+					exact 
+					path='/create'
+					render={(rp)=>(
+						<Form {...rp} label='create' food={emptyFood} handleSubmit={handleCreate} />
+					)}
+				/>
+				<Route 
+					exact 
+					path = '/edit'
+					render = {(rp) => (
+						<Form {...rp} label='update' food={selectedFood} handleSubmit={handleUpdate}/>
+					)}
+				/>
+				
+			</Switch>
+					
 			
 		</div>
 	);
