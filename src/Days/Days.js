@@ -84,6 +84,7 @@ const Days = (props) => {
 	return (
 		<div className='Days'>
 			{displayDays}
+
 			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
 
 			{/* <Route
@@ -123,8 +124,6 @@ const Days = (props) => {
 				/>
 				
 			</Switch>
-					
-			
 		</div>
 	);
 }
