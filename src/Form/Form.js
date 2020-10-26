@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Form = () => {
-    
+  
     return(
         <div className="Form">
             <form>
                 <input
-                    type='text'
+                    type='Date'
                     name='Date'
+                    placeholder='Date'
+                />
+                <input
+                    type='text'
+                    name='Day'
                     placeholder='Day(eg: Monday, etc..)'
                 />
                 <input
