@@ -10,7 +10,7 @@ const NavBar = () => {
 
 	return (
 		<>
-			<Navbar color='faded' light className='color-nav'>
+			<Navbar color='faded' light className='color-nav' sticky='top' expand='lg'>
 				<NavbarBrand href='/' className='mr-auto'>
 					<img src='https://i.imgur.com/mL0La8x.png' alt='brand logo' />
 				</NavbarBrand>

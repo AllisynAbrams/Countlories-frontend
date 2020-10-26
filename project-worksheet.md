@@ -42,8 +42,8 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 | Form SCSS | H | 2 | 0 |
 | Component - Day | H | 4 | 0 |
 | Day SCSS | H | 3 | 0 |
-| Component - Team | H | 2 | 0 |
-| Team SCSS | H | 2 | 0 |
+| Component - Team | H | 2 | 2 |
+| Team SCSS | H | 2 | 3 |
 | Component - About (about project) | H | 1.5 | 0 |
 | About SCSS | H | 1.5 | 0 |
 | Responsiveness / Media queries | H | 3 | 0 |
@@ -53,7 +53,7 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 | Post-MVP: light/dark mode | M | 3 | 0 |
 | Post-MVP: framer motion | M | 6 | 0 |
 | Post-MVP: chart.js | M | 6 | 0 |
-| TOTAL | H | 83 | 2.5 |
+| TOTAL | H | 83 | 7.5 |
 
 ## MVP/POST MVP
 
