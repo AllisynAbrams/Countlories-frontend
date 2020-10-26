@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import Form from '../Form/Form'
-import Food from '../Food/Food'
 import './days.scss'
 
 const Days = (props) => {
@@ -87,11 +86,6 @@ const Days = (props) => {
 								</>
 							)
 						})}
-						{/* <p className='test1'>Food Item</p> */}
-						<p className='test2'>###</p>
-						{/* <p className='edit'>Edit</p>
-						<p className='x'>X</p> */}
-						{/* <p>{days.food}</p> */}
 					</div>
 				</div>
 			)
@@ -101,30 +95,7 @@ const Days = (props) => {
 	return (
 		<div className='Days'>
 			{displayDays}
-
-			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
-
-			{/* <Route
-				exact
-				path='/'
-				render={(rp) => (
-					<Food
-						{...rp}
-						food={food}
-						selectFood={selectFood}
-						deleteFood={deleteFood}
-						getFoods={getFoods}
-					/>
-				)}
-			/> */}
-
 			<Switch>
-				{/* <Food
-					food={food}
-					selectFood={selectFood}
-					deleteFood={deleteFood}
-					getFoods={getFoods}
-				/> */}
 				<Route
 					exact
 					path='/create'
