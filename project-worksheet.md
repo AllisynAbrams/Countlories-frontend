@@ -24,36 +24,36 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 |  ---  |  :---:  |   :---:  |  :---:  |
 | Git management | H | 6 | 0 |
 | Q&A / debugging | H | 10 | 0 |
-| Backend dependencies | H | 0.5 | 0 |
-| Backend server | H | 1 | 0 |
-| Backend database connection | H | 0.5 | 0 |
-| Backend models/schemas (day and foods) | H | 0.5 | 0 |
-| Backend seed | H | 0.5 | 0 |
-| Backend controllers - router + CRUD routes + testing routes | H | 3 | 0 |
-| Backend deployment on Heroku + re-test all routes | H | 1.5 | 0 |
-| Install and set up React, React Router | H | 0.5 | 0 |
+| Backend dependencies | H | 0.5 | 0.5 |
+| Backend server | H | 1 | 1 |
+| Backend database connection | H | 0.5 | 0.5 |
+| Backend models/schemas (day and foods) | H | 0.5 | 0.5 |
+| Backend seed | H | 0.5 | 0.5 |
+| Backend controllers - router + CRUD routes + testing routes | H | 3 | 3 |
+| Backend deployment on Heroku + re-test all routes | H | 1.5 | 1 |
+| Install and set up React, React Router | H | 0.5 | 0.5 |
 | CRUD on frontend (routes) | H | 5 | 0 |
-| App.js | H | 2 | 0 |
-| Component - Home | H | 2 | 0 |
-| Home SCSS | H | 1 | 0 |
+| App.js | H | 2 | 1 |
+| Component - Home | H | 2 | 1 |
+| Home SCSS | H | 1 | 1 |
 | Component - NavBar | H | 2 | 1.5 |
 | NavBar SCSS | H | 1 | 1 |
 | Component - Form | H | 3 | 0 |
 | Form SCSS | H | 2 | 0 |
-| Component - Day | H | 4 | 0 |
-| Day SCSS | H | 3 | 0 |
+| Component - Days | H | 4 | 0 |
+| Days SCSS | H | 3 | 3 |
 | Component - Team | H | 2 | 2 |
 | Team SCSS | H | 2 | 3 |
-| Component - About (about project) | H | 1.5 | 0 |
-| About SCSS | H | 1.5 | 0 |
-| Responsiveness / Media queries | H | 3 | 0 |
+| Component - About (about project) | H | 1.5 | 1 |
+| About SCSS | H | 1.5 | 3 |
+| Responsiveness / Media queries | H | 3 | 2 |
 | Update React/Frontend with Heroku URL + re-test all features | H | 3 | 0 |
 | Deploy React/frontend to Netlify + re-test all features | H | 3 | 0 |
 | Extra styling | M | 3 | 0 |
 | Post-MVP: light/dark mode | M | 3 | 0 |
-| Post-MVP: framer motion | M | 6 | 0 |
+| Post-MVP: framer motion | M | 6 | 4 |
 | Post-MVP: chart.js | M | 6 | 0 |
-| TOTAL | H | 83 | 7.5 |
+| TOTAL | H | 83 | 31.5 |
 
 ## MVP/POST MVP
 
