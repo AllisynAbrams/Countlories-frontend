@@ -72,7 +72,7 @@ const Days = (props) => {
 		<div className='Days'>
 			{displayDays}
 			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
-			<Food food={food} selectFood={selectFood} deleteFood={deleteFood}/>
+			<Food food={food} selectFood={selectedFood} deleteFood={deleteFood}/>
 		</div>
 	)
 }
