@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Route, Link, Switch} from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom';
 import Form from '../Form/Form'
 import Food from '../Food/Food'
 import './days.scss'
@@ -21,7 +21,7 @@ const Days = (props) => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('this is data', data)
-				setFood(data.data)
+				setFood(data)
 			})
 	}
 
@@ -37,6 +37,18 @@ const Days = (props) => {
 			},
 			body: JSON.stringify(food),
 		})
+		.then(response => getFoods)
+	}
+
+	const handleUpdate = (food) => {
+		fetch(url + '/food/' + food._id, {
+			method: 'put', 
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(food)
+		})
+		.then(response => getFoods)
 	}
 
 	const deleteFood = (food) => {
@@ -72,10 +84,48 @@ const Days = (props) => {
 	return (
 		<div className='Days'>
 			{displayDays}
-			<Form emptyFood={emptyFood} handleSubmit={handleCreate}/>
-			<Food food={food} selectFood={selectedFood} deleteFood={deleteFood}/>
+
+			{/* <Form emptyFood={emptyFood} handleSubmit={handleCreate}/> */}
+
+			{/* <Route
+				exact
+				path='/'
+				render={(rp) => (
+					<Food
+						{...rp}
+						food={food}
+						selectFood={selectFood}
+						deleteFood={deleteFood}
+						getFoods={getFoods}
+					/>
+				)}
+			/> */}
+
+			<Switch>
+				<Food
+					food={food}
+					selectFood={selectFood}
+					deleteFood={deleteFood}
+					getFoods={getFoods}
+				/>
+				<Route 
+					exact 
+					path='/create'
+					render={(rp)=>(
+						<Form {...rp} label='create' food={emptyFood} handleSubmit={handleCreate} />
+					)}
+				/>
+				<Route 
+					exact 
+					path = '/edit'
+					render = {(rp) => (
+						<Form {...rp} label='update' food={selectedFood} handleSubmit={handleUpdate}/>
+					)}
+				/>
+				
+			</Switch>
 		</div>
-	)
+	);
 }
 
 export default Days
