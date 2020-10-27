@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 // import { Route, Link, Switch } from 'react-router-dom'
 // import Form from '../Form/Form'
 import './days.scss'
@@ -87,7 +87,8 @@ const Days = (props) => {
 					</div>
 					<p className='add' onClick={(e) => {
 						setToggle(true)
-						setCurrentDay(days._id)}}>
+						setCurrentDay(days._id)
+						}}>
 						+
 					</p>
 					<div className='day-body'>
