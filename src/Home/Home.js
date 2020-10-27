@@ -21,7 +21,7 @@ const Home = () => {
 
 	return (
 		<div className='Home'>
-			<Days days={days} />
+			<Days days={days} getDays={getDays} />
 		</div>
 	)
 }
