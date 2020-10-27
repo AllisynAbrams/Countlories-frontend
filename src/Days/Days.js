@@ -65,8 +65,7 @@ const Days = (props) => {
 				<div className='day' key={days._id}>
 					<div className='day-header'>
 						<p>{days.day}</p>
-						<p>test date</p>
-						<h4>{days.date}</h4>
+						<input type='date' />
 					</div>
 					<Link to='/create'>
 						<p className='add'>+</p>
