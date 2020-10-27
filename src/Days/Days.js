@@ -57,7 +57,6 @@ const Days = (props) => {
 		create === true ? handleCreate(formData) : handleUpdate(formData)
 		setDayToggle(true)
 		setToggle(false)
-		props.getDays()
 	}
 
 	const handleChange = (e) => {
