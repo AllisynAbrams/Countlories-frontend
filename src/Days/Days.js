@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const Days = (props) => {
 	// console.log('this is props', props)
-	console.log('day id props', props.days)
+	// console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
 	const emptyFood = {
 		foodItem: String,
@@ -21,7 +21,7 @@ const Days = (props) => {
 	const [dayToggle, setDayToggle] = useState(true)
 
 	const handleCreate = (newFood) => {
-		console.log('create', currentDay)
+		console.log('create new food in this day', currentDay)
 		fetch(`https://countlories.herokuapp.com/${currentDay}`, {
 			method: 'post',
 			headers: {
@@ -38,7 +38,7 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then(() => props.getDays())
+		}).then(() => props.getDays());
 	}
 
 	const deleteFood = (food) => {
@@ -49,19 +49,23 @@ const Days = (props) => {
 
 	const selectFood = (food) => {
 		setSelectedFood(food)
+		console.log('selectedFood is..', selectedFood);
 	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		handleCreate(formData)
-		setDayToggle(true)
-		setToggle(false)
-	}
+	
+const handleSubmit= (e) => {
+	e.preventDefault();
+	setDayToggle(true);
+	setToggle(false);
+	handleUpdate(formData)
+};
+
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
+	
 	let displayDays = <h1>Loading...</h1>
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
@@ -98,12 +102,21 @@ const Days = (props) => {
 										<>
 											<p className='foods'>{food.foodItem}</p>
 											<p className='calories'>{food.calories}</p>
-											<p className='edit'>Edit</p>
+											<p
+												className='edit'
+												onClick={(e) => {
+													selectFood();
+													setFormData(selectedFood)
+													setDayToggle(false);
+													setToggle(true);
+												}}>
+												Edit
+											</p>
 											<p className='x' onClick={() => deleteFood(food)}>
 												X
 											</p>
 										</>
-									)
+									);
 								})}
 							</div>
 						</motion.div>
@@ -113,6 +126,7 @@ const Days = (props) => {
 		})
 	}
 
+ 
 	return (
 		<motion.div
 			className='Days'
@@ -124,7 +138,7 @@ const Days = (props) => {
 				setToggle={setToggle}
 				setDayToggle={setDayToggle}>
 				<div className='form'>
-					<form onSubmit={handleSubmit} food={emptyFood}>
+					<form onSubmit={handleSubmit} food={selectedFood}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
