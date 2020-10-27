@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './days.scss'
 import Modal from '../Modal/Modal'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -13,7 +13,6 @@ const Days = (props) => {
 		time: String,
 	}
 
-	const [food, setFood] = useState([])
 	const [currentDay, setCurrentDay] = useState('')
 	const [selectedFood, setSelectedFood] = useState(emptyFood)
 	const [formData, setFormData] = useState({})
@@ -48,10 +47,10 @@ const Days = (props) => {
 		}).then(() => props.getDays())
 	}
 
-	const selectFood = (food) => {
-		setSelectedFood(food)
-		// console.log('selectFood', selectedFood)
-	}
+	// const selectFood = (food) => {
+	// 	setSelectedFood(food)
+	// 	// console.log('selectFood', selectedFood)
+	// }
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
