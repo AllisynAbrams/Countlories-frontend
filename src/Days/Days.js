@@ -93,11 +93,13 @@ const Days = (props) => {
 								<p className='total-amount'></p>
 								<p className='foods'>Food</p>
 								<p className='calories'>Calories</p>
+								<p className='time'>Time</p>
 								{days.food.map((food) => {
 									return (
 										<>
 											<p className='foods'>{food.foodItem}</p>
 											<p className='calories'>{food.calories}</p>
+											<p className='time'>{food.time}</p>
 											<p
 												className='edit'
 												onClick={() => {
@@ -132,9 +134,7 @@ const Days = (props) => {
 				setToggle={setToggle}
 				setDayToggle={setDayToggle}>
 				<div className='form'>
-					<form
-						onSubmit={handleSubmit}
-						food={emptyFood}>
+					<form onSubmit={handleSubmit} food={emptyFood}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
