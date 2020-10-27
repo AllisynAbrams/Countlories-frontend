@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const Days = (props) => {
 	// console.log('this is props', props)
-	console.log('day id props', props.days)
+	// console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
 	const emptyFood = {
 		foodItem: String,
@@ -19,9 +19,10 @@ const Days = (props) => {
 	const [formData, setFormData] = useState({})
 	const [isToggled, setToggle] = useState(false)
 	const [dayToggle, setDayToggle] = useState(true)
+	const [create, setCreate] = useState(false)
 
 	const handleCreate = (newFood) => {
-		console.log('create', currentDay)
+		// console.log('create', currentDay)
 		fetch(`https://countlories.herokuapp.com/${currentDay}`, {
 			method: 'post',
 			headers: {
@@ -49,17 +50,20 @@ const Days = (props) => {
 
 	const selectFood = (food) => {
 		setSelectedFood(food)
+		// console.log('selectFood', selectedFood)
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		handleCreate(formData)
+		create === true ? handleCreate(formData) : handleUpdate(formData)
 		setDayToggle(true)
 		setToggle(false)
+		props.getDays()
 	}
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
+		console.log('form data', formData)
 	}
 
 	let displayDays = <h1>Loading...</h1>
@@ -81,10 +85,12 @@ const Days = (props) => {
 							</div>
 							<p
 								className='add'
-								onClick={(e) => {
+								onClick={() => {
+									setCreate(true)
+									setFormData(emptyFood)
+									setCurrentDay(days._id)
 									setToggle(true)
 									setDayToggle(false)
-									setCurrentDay(days._id)
 								}}>
 								+
 							</p>
@@ -93,15 +99,19 @@ const Days = (props) => {
 								<p className='total-amount'></p>
 								<p className='foods'>Food</p>
 								<p className='calories'>Calories</p>
+								<p className='time'>Time</p>
 								{days.food.map((food) => {
 									return (
 										<>
 											<p className='foods'>{food.foodItem}</p>
 											<p className='calories'>{food.calories}</p>
+											<p className='time'>{food.time}</p>
 											<p
 												className='edit'
 												onClick={() => {
-													selectFood(food)
+													setCreate(false)
+													setSelectedFood(food)
+													setFormData(selectedFood)
 													setToggle(true)
 													setDayToggle(false)
 												}}>
@@ -133,13 +143,13 @@ const Days = (props) => {
 				setDayToggle={setDayToggle}>
 				<div className='form'>
 					<form
-						onSubmit={handleSubmit}
-						food={emptyFood}>
+						food={emptyFood}
+						selectFood={selectedFood}
+						onSubmit={handleSubmit}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
 							name='foodItem'
-							value={formData.foodItem}
 							onChange={handleChange}
 							placeholder='Food Item'
 						/>
@@ -147,7 +157,6 @@ const Days = (props) => {
 						<input
 							type='number'
 							name='calories'
-							value={formData.calories}
 							onChange={handleChange}
 							placeholder='Calories'
 						/>
@@ -155,7 +164,6 @@ const Days = (props) => {
 						<input
 							type='text'
 							name='time'
-							value={formData.time}
 							onChange={handleChange}
 							placeholder='Time (eg: 2:00pm)'
 						/>
