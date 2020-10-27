@@ -7,6 +7,7 @@ const Days = (props) => {
 	// console.log('this is props', props)
 	// console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
+	
 	const emptyFood = {
 		foodItem: String,
 		calories: Number,
@@ -47,10 +48,10 @@ const Days = (props) => {
 		}).then(() => props.getDays())
 	}
 
-	// const selectFood = (food) => {
-	// 	setSelectedFood(food)
-	// 	// console.log('selectFood', selectedFood)
-	// }
+	const selectFood = (food) => {
+		setSelectedFood(food)
+		// console.log('selectFood', selectedFood)
+	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -109,7 +110,7 @@ const Days = (props) => {
 												className='edit'
 												onClick={() => {
 													setCreate(false)
-													setSelectedFood(food)
+													selectFood(food)
 													setFormData(selectedFood)
 													setToggle(true)
 													setDayToggle(false)

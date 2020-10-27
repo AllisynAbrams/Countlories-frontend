@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Days from '../Days/Days'
+import { Route } from 'react-router-dom';
 
 const Home = () => {
 	const url = 'https://countlories.herokuapp.com'
@@ -21,7 +22,7 @@ const Home = () => {
 
 	return (
 		<div className='Home'>
-			<Days days={days} getDays={getDays} />
+			<Route exact path='/' render={(rp) => ( <Days {...rp} days={days} getDays={getDays}/>)} />
 		</div>
 	)
 }
