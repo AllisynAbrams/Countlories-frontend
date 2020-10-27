@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Form = (props) => {
-    const [formData, setFormData] = React.useState(props.food); 
+    const [formData, setFormData] = useState(); 
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -10,7 +10,7 @@ const Form = (props) => {
     }
 
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.day]: e.target.value})
+        setFormData({...formData, [e.target.name]: e.target.value})
     }
 
     return(
@@ -19,41 +19,41 @@ const Form = (props) => {
                 <input
                     type='Date'
                     name='Date'
-                    value={formData.date}
+                    // value={formData.date}
                     onChange={handleChange}
                     placeholder='Date'
                 />
                 <input
                     type='text'
                     name='Day'
-                    value={formData.day}
+                    // value={formData.day}
                     onChange={handleChange}
                     placeholder='Day(eg: Monday, etc..)'
                 />
                 <input
                     type='text'
                     name='Time'
-                    value={formData.time}
+                    // value={formData.time}
                     onChange={handleChange}
                     placeholder='Time (eg: 2:00pm)'
                 />
                 <input
                     type='text'
                     name='Food Item'
-                    value={formData.foodItem}
+                    // value={formData.foodItem}
                     onChange={handleChange}
                     placeholder='Food Item'
                 />
                 <input
                     type='number'
                     name='Calories'
-                    value={formData.calories}
+                    // value={formData.calories}
                     onChange={handleChange}
                     placeholder='Calories'
                 />
                 <input
                     type='submit' 
-                    value={props.label}
+                    // value={props.label}
                 />
             </form>  
         </div>
