@@ -54,6 +54,8 @@ const Days = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		handleCreate(formData)
+		setDayToggle(true)
+		setToggle(false)
 	}
 
 	const handleChange = (e) => {
@@ -117,7 +119,10 @@ const Days = (props) => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}>
-			<Modal isToggled={isToggled} setToggle={setToggle} setDayToggle={setDayToggle}>
+			<Modal
+				isToggled={isToggled}
+				setToggle={setToggle}
+				setDayToggle={setDayToggle}>
 				<div className='form'>
 					<form onSubmit={handleSubmit} food={emptyFood}>
 						<p>What did you eat?</p>
