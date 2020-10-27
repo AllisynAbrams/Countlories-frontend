@@ -13,7 +13,7 @@ const Days = (props) => {
 		time: String,
 	}
 
-	const [food, setFood] = useState([])
+	// const [food, setFood] = useState([])
 	const [currentDay, setCurrentDay] = useState('')
 	const [selectedFood, setSelectedFood] = useState(emptyFood)
 	const [formData, setFormData] = useState({})
