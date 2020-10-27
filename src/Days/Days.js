@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 const Days = (props) => {
 	// console.log('this is props', props)
-	console.log('day id', props.days)
+	console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
 	const emptyFood = {
 		foodItem: String,
@@ -16,7 +16,9 @@ const Days = (props) => {
 	}
 
 	const [food, setFood] = useState([])
+	const [currentDay, setCurrentDay] = useState('')
 	const [selectedFood, setSelectedFood] = useState(emptyFood)
+	const [formData, setFormData] = useState({})
 	const [isToggled, setToggle] = useState(false)
 
 	const getFoods = () => {
@@ -33,7 +35,8 @@ const Days = (props) => {
 	}, [])
 
 	const handleCreate = (newFood) => {
-		fetch(url + '/food/', {
+		console.log('create', currentDay)
+		fetch(`https://countlories.herokuapp.com/${currentDay}`, {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,8 +65,6 @@ const Days = (props) => {
 		setSelectedFood(food)
 	}
 
-	const [formData, setFormData] = useState()
-
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		handleCreate(formData)
@@ -84,12 +85,14 @@ const Days = (props) => {
 						<input type='date' />
 						<h4>{days.date}</h4>
 					</div>
-					<p className='add' onClick={() => setToggle(true)}>
+					<p className='add' onClick={(e) => {
+						setToggle(true)
+						setCurrentDay(days._id)}}>
 						+
 					</p>
 					<div className='day-body'>
 						<p className='total'>Total</p>
-						<p className='total-amount'>###</p>
+						<p className='total-amount'></p>
 						<p className='foods'>Food</p>
 						<p className='calories'>Calories</p>
 						{days.food.map((food) => {
@@ -118,11 +121,11 @@ const Days = (props) => {
 			transition={{ duration: 1 }}>
 			<Modal isToggled={isToggled} setToggle={setToggle}>
 				<div className='form'>
-					<form onSubmit={handleSubmit} food={{emptyFood}}>
+					<form onSubmit={handleSubmit} food={emptyFood}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
-							name='Food Item'
+							name='foodItem'
 							// value={formData.foodItem}
 							onChange={handleChange}
 							placeholder='Food Item'
@@ -130,7 +133,7 @@ const Days = (props) => {
 						<p>How many calories?</p>
 						<input
 							type='number'
-							name='Calories'
+							name='calories'
 							// value={formData.calories}
 							onChange={handleChange}
 							placeholder='Calories'
@@ -138,7 +141,7 @@ const Days = (props) => {
 						<p>What time did you eat this?</p>
 						<input
 							type='text'
-							name='Time'
+							name='time'
 							// value={formData.time}
 							onChange={handleChange}
 							placeholder='Time (eg: 2:00pm)'

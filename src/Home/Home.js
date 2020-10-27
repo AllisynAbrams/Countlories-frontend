@@ -10,7 +10,7 @@ const Home = () => {
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log('this is data', data)
+				// console.log('this is data', data.data)
 				setDays(data.data)
 			})
 	}
