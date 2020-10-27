@@ -18,13 +18,13 @@ const NavBar = () => {
 				<Collapse isOpen={!collapsed} navbar>
 					<Nav navbar>
 						<NavItem>
-							<NavLink href='/'>Home</NavLink>
+							<NavLink href='/'><b>Home</b>&nbsp;<i className="fas fa-home"></i></NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href='/team'>Team</NavLink>
+							<NavLink href='/team'><b>Team</b>&nbsp;<i class="fas fa-users"></i></NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href='/about'>About</NavLink>
+							<NavLink href='/about'><b>About</b>&nbsp;<i class="fas fa-info-circle"></i></NavLink>
 						</NavItem>
 					</Nav>
 				</Collapse>
