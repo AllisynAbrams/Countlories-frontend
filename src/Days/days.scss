@@ -92,7 +92,7 @@
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
 			font-family: 'Montserrat', sans-serif;
-			font-size: 24px;
+			font-size: 18px;
 
 			p {
 				margin: 5px;
@@ -175,6 +175,12 @@
 			p {
 				width: 65%;
 				font-size: 28px;
+			}
+		}
+
+		.day-body {
+			p {
+				font-size: 24px;
 			}
 		}
 	}
