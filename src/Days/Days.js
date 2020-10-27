@@ -98,7 +98,15 @@ const Days = (props) => {
 										<>
 											<p className='foods'>{food.foodItem}</p>
 											<p className='calories'>{food.calories}</p>
-											<p className='edit'>Edit</p>
+											<p
+												className='edit'
+												onClick={() => {
+													selectFood(food)
+													setToggle(true)
+													setDayToggle(false)
+												}}>
+												Edit
+											</p>
 											<p className='x' onClick={() => deleteFood(food)}>
 												X
 											</p>
@@ -124,12 +132,14 @@ const Days = (props) => {
 				setToggle={setToggle}
 				setDayToggle={setDayToggle}>
 				<div className='form'>
-					<form onSubmit={handleSubmit} food={emptyFood}>
+					<form
+						onSubmit={handleSubmit}
+						food={emptyFood}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
 							name='foodItem'
-							// value={formData.foodItem}
+							value={formData.foodItem}
 							onChange={handleChange}
 							placeholder='Food Item'
 						/>
@@ -137,7 +147,7 @@ const Days = (props) => {
 						<input
 							type='number'
 							name='calories'
-							// value={formData.calories}
+							value={formData.calories}
 							onChange={handleChange}
 							placeholder='Calories'
 						/>
@@ -145,7 +155,7 @@ const Days = (props) => {
 						<input
 							type='text'
 							name='time'
-							// value={formData.time}
+							value={formData.time}
 							onChange={handleChange}
 							placeholder='Time (eg: 2:00pm)'
 						/>
