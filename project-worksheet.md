@@ -22,8 +22,8 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 
 |  Component  |  Priority  |  Estimated Time  |  Actual Time  |
 |  ---  |  :---:  |   :---:  |  :---:  |
-| Git management | H | 6 | 0 |
-| Q&A / debugging | H | 10 | 0 |
+| Git management | H | 6 | 4 |
+| Q&A / debugging | H | 10 | 10 |
 | Backend dependencies | H | 0.5 | 0.5 |
 | Backend server | H | 1 | 1 |
 | Backend database connection | H | 0.5 | 0.5 |
@@ -40,8 +40,8 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 | NavBar SCSS | H | 1 | 1 |
 | Component - Form | H | 3 | 0 |
 | Form SCSS | H | 2 | 0 |
-| Component - Days | H | 4 | 0 |
-| Days SCSS | H | 3 | 3 |
+| Component - Days | H | 4 | 10 |
+| Days SCSS | H | 3 | 6 |
 | Component - Team | H | 2 | 2 |
 | Team SCSS | H | 2 | 3 |
 | Component - About (about project) | H | 1.5 | 1 |
@@ -51,9 +51,9 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 | Deploy React/frontend to Netlify + re-test all features | H | 3 | 0 |
 | Extra styling | M | 3 | 0 |
 | Post-MVP: light/dark mode | M | 3 | 0 |
-| Post-MVP: framer motion | M | 6 | 4 |
+| Post-MVP: framer motion | M | 6 | 6 |
 | Post-MVP: chart.js | M | 6 | 0 |
-| TOTAL | H | 83 | 31.5 |
+| TOTAL | H | 83 | 61 |
 
 ## MVP/POST MVP
 
@@ -103,7 +103,6 @@ Countlories is an all purpose food/calorie tracker. This response web app help u
 | Team | Description of the team |
 | Home | Displays the Days |
 | Days | Days of the week to add your calorie count |
-| Food | Where the added calories/food will render |
 | Form | Fill out food and calories |
 
 ## Additional Libraries Used

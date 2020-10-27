@@ -20,8 +20,8 @@ const Team = () => {
 						src='https://res.cloudinary.com/lienguyen317/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1600186273/profilepic_skbuus.png'
 						alt='lien'
 					/>
-					<p>About Lien</p>
-					<p>What Lien did for Countlories</p>
+					<p>Hello! I'm an aspired full stack software engineer student at General Assembly. </p>
+					<p>For this project, I set up the backend server, models and controllers using Express, Mongo, and Mongoose. I used Postman to test the backend routes and made sure that things are running smoothly. Additionally, I also helped set up the frontend React architecture and templates.</p>
 				</div>
 				<div className='memeber'>
 					<h3>Jake Nguyen</h3>

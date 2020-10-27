@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .Days {
 	.form:first-child {
@@ -37,8 +38,8 @@
 		input {
 			width: 80%;
 			height: 30px;
-			font-size: 20px;
-			font-family: 'Yanone Kaffeesatz', sans-serif;
+			font-size: 16px;
+			font-family: 'Montserrat', sans-serif;
 			margin: 5px;
 		}
 
@@ -89,9 +90,9 @@
 			border: 1px #7aebfa solid;
 			grid-column: 1 / 4;
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			font-family: 'Yanone Kaffeesatz', sans-serif;
-			font-size: 24px;
+			grid-template-columns: repeat(5, 1fr);
+			font-family: 'Montserrat', sans-serif;
+			font-size: 18px;
 
 			p {
 				margin: 5px;
@@ -113,7 +114,8 @@
 				grid-column: 2 / 3;
 			}
 
-			.edit {
+			.time {
+				grid-column: 3 / 4;
 			}
 
 			.x {
@@ -127,6 +129,60 @@
 	.Days {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+
+		.form:first-child {
+			width: 65%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.form {
+			.form-x {
+				right: -47px;
+			}
+
+			input {
+				width: 70%;
+			}
+
+			p {
+				width: 70%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.Days {
+
+		.form:first-child {
+			width: 75%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.form {
+			.form-x {
+				right: -87px;
+			}
+
+			input {
+				width: 65%;
+				height: 40px;
+				font-size: 20px;
+			}
+
+			p {
+				width: 65%;
+				font-size: 28px;
+			}
+		}
+
+		.day-body {
+			p {
+				font-size: 24px;
+			}
+		}
 	}
 }
 
@@ -134,5 +190,28 @@
 	.Days {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+
+		.form:first-child {
+			width: 65%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.form {
+			.form-x {
+				right: -100px;
+			}
+
+			input {
+				width: 65%;
+				height: 40px;
+				font-size: 24px;
+			}
+
+			p {
+				width: 65%;
+				font-size: 32px;
+			}
+		}
 	}
 }

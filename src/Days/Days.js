@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './days.scss'
 import Modal from '../Modal/Modal'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -13,15 +13,15 @@ const Days = (props) => {
 		time: String,
 	}
 
-	const [food, setFood] = useState([])
 	const [currentDay, setCurrentDay] = useState('')
 	const [selectedFood, setSelectedFood] = useState(emptyFood)
 	const [formData, setFormData] = useState({})
 	const [isToggled, setToggle] = useState(false)
 	const [dayToggle, setDayToggle] = useState(true)
+	const [create, setCreate] = useState(false)
 
 	const handleCreate = (newFood) => {
-		console.log('create new food in this day', currentDay)
+		// console.log('create', currentDay)
 		fetch(`https://countlories.herokuapp.com/${currentDay}`, {
 			method: 'post',
 			headers: {
@@ -47,22 +47,21 @@ const Days = (props) => {
 		}).then(() => props.getDays())
 	}
 
-	const selectFood = (food) => {
-		setSelectedFood(food)
-		console.log('selectedFood is..', selectedFood);
+	// const selectFood = (food) => {
+	// 	setSelectedFood(food)
+	// 	// console.log('selectFood', selectedFood)
+	// }
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		create === true ? handleCreate(formData) : handleUpdate(formData)
+		setDayToggle(true)
+		setToggle(false)
 	}
-
-	
-const handleSubmit= (e) => {
-	e.preventDefault();
-	setDayToggle(true);
-	setToggle(false);
-	handleUpdate(formData)
-};
-
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
+		console.log('form data', formData)
 	}
 
 	
@@ -85,10 +84,12 @@ const handleSubmit= (e) => {
 							</div>
 							<p
 								className='add'
-								onClick={(e) => {
+								onClick={() => {
+									setCreate(true)
+									setFormData(emptyFood)
+									setCurrentDay(days._id)
 									setToggle(true)
 									setDayToggle(false)
-									setCurrentDay(days._id)
 								}}>
 								+
 							</p>
@@ -97,18 +98,21 @@ const handleSubmit= (e) => {
 								<p className='total-amount'></p>
 								<p className='foods'>Food</p>
 								<p className='calories'>Calories</p>
+								<p className='time'>Time</p>
 								{days.food.map((food) => {
 									return (
 										<>
 											<p className='foods'>{food.foodItem}</p>
 											<p className='calories'>{food.calories}</p>
+											<p className='time'>{food.time}</p>
 											<p
 												className='edit'
-												onClick={(e) => {
-													selectFood();
+												onClick={() => {
+													setCreate(false)
+													setSelectedFood(food)
 													setFormData(selectedFood)
-													setDayToggle(false);
-													setToggle(true);
+													setToggle(true)
+													setDayToggle(false)
 												}}>
 												Edit
 											</p>
@@ -138,12 +142,14 @@ const handleSubmit= (e) => {
 				setToggle={setToggle}
 				setDayToggle={setDayToggle}>
 				<div className='form'>
-					<form onSubmit={handleSubmit} food={selectedFood}>
+					<form
+						food={emptyFood}
+						selectFood={selectedFood}
+						onSubmit={handleSubmit}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
 							name='foodItem'
-							// value={formData.foodItem}
 							onChange={handleChange}
 							placeholder='Food Item'
 						/>
@@ -151,7 +157,6 @@ const handleSubmit= (e) => {
 						<input
 							type='number'
 							name='calories'
-							// value={formData.calories}
 							onChange={handleChange}
 							placeholder='Calories'
 						/>
@@ -159,7 +164,6 @@ const handleSubmit= (e) => {
 						<input
 							type='text'
 							name='time'
-							// value={formData.time}
 							onChange={handleChange}
 							placeholder='Time (eg: 2:00pm)'
 						/>
