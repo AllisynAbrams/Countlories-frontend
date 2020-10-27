@@ -82,7 +82,7 @@ const Days = (props) => {
 									<p className='foods'>{food.foodItem}</p>
 									<p className='calories'>{food.calories}</p>
 									<p className='edit'>Edit</p>
-									<p className='x'>X</p>
+									<p className='x' onClick={() => deleteFood(food)}>X</p>
 								</>
 							)
 						})}
