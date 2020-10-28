@@ -31,7 +31,7 @@ const Home = () => {
 
 	const createDays = (day) => {
 		fetch(url + '/seed', {
-			method: 'post',
+			method: 'get',
 			headers: {
 				'Content-Type': 'application/json',
 			},
