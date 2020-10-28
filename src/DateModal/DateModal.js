@@ -12,7 +12,7 @@ const DateModal = ({ isDateToggled, setDateToggle, setDayToggle, children }) => 
 						exit={{ opacity: 0 }}
 						style={{
 							position: 'fixed',
-							top: '200px',
+							top: '125px',
 							width: '75%',
 							left: '50%',
 							transform: 'translate3d(-50%, 0,0)',
