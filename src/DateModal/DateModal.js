@@ -23,9 +23,7 @@ const DateModal = ({ isDateToggled, setDateToggle, setDayToggle, children }) => 
 								onClick={() => {
 									setDayToggle(true);
 									setDateToggle(false);
-								}}>
-								X
-							</p>
+								}}>X</p>
 							{children}
 						</div>
 					</motion.div>

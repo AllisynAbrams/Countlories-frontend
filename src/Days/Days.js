@@ -220,6 +220,7 @@ const handleSelectDate = (date) => {
 				</div>
 			</Modal>
 			{displayDays}
+
 			<DateModal
 				isDateToggled={isDateToggled}
 				setDateToggle={setDateToggle}
@@ -242,6 +243,7 @@ const handleSelectDate = (date) => {
 					</form>
 				</div>
 			</DateModal>
+			
 		</motion.div>
 	);
 }
