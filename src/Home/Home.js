@@ -13,6 +13,7 @@ const Home = () => {
 			.then((data) => {
 				// console.log('this is data', data.data)
 				setDays(data.data)
+				 console.log('this is days', days);
 			})
 	}
 
