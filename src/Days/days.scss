@@ -6,7 +6,7 @@
 		border: 1px white solid;
 	}
 
-	.form {
+	.form, .date-form {
 		background-color: #1e1e1e;
 		margin: 10px;
 		padding: 10px;
@@ -14,7 +14,7 @@
 		display: grid;
 		border: 1px #7aebfa solid;
 
-		.form-x {
+		.form-x, .form-d {
 			color: white;
 			font-size: 30px;
 			text-align: right;
@@ -71,6 +71,13 @@
 				font-family: 'Yanone Kaffeesatz', sans-serif;
 				font-size: 30px;
 				color: #6252cb;
+			}
+
+			.display-date {
+				margin: 0;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+				font-size: 22px;
+				color: white
 			}
 		}
 
@@ -141,8 +148,8 @@
 			margin-right: auto;
 		}
 
-		.form {
-			.form-x {
+		.form, .date-form  {
+			.form-x, .form-d {
 				right: -47px;
 			}
 
@@ -166,8 +173,8 @@
 			margin-right: auto;
 		}
 
-		.form {
-			.form-x {
+		.form, .date-form  {
+			.form-x, .form-d {
 				right: -87px;
 			}
 
@@ -202,8 +209,8 @@
 			margin-right: auto;
 		}
 
-		.form {
-			.form-x {
+		.form, .date-form {
+			.form-x, .form-d {
 				right: -100px;
 			}
 
