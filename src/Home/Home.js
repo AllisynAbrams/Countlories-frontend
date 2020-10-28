@@ -43,10 +43,12 @@ const Home = () => {
 		<div className='Home'>
 			<div className='home-buttons'>
 				<p className='delete-week' onClick={() => deleteDays()}>
-					Delete This Week
+					<b>Delete This Week</b>&nbsp;
+					<i class="far fa-calendar-plus"></i>
 				</p>
 				<p className='new-week' onClick={() => createDays()}>
-					Add New Week
+					<b>Add New Week</b>&nbsp;
+					<i class="far fa-calendar-minus"></i>
 				</p>
 			</div>
 			<Route
