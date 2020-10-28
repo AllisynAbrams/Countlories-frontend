@@ -13,11 +13,21 @@ const Team = () => {
 					/>
 					<div>
 						<p>
-							About Allisyn
+							Hi there! I'm Allisyn, an aspiring software developer. I am
+							passionate about usability, visual aesthetics, and bringing a
+							sense of ease and human connection to our screens through the
+							creation of thoughtful, solution-oriented products and intuitive
+							functionality. My background in retail buying and planning has
+							helped me develop a user-first/customer-first mindset which I carry with me throughout all my work.
 						</p>
 						<br />
 						<p>
-							What Allisyn did for Countlories
+							I took on the role of team coordinator, acting as the GitHub
+							gatekeeper for our project repos and helping to maintain smooth
+							process flows and task delegations through consistent
+							communication and the use of our collaboration tool, Notion. I
+							helped develop the UI/UX concepts and created our wireframes with
+							MockFlow. Additionally.....[add more - help test in postman, debug edit food button, select date, some styling]
 						</p>
 					</div>
 				</div>
@@ -47,17 +57,22 @@ const Team = () => {
 					<img src='https://i.imgur.com/uCzjr9m.jpg' alt='jake' />
 					<div>
 						<p>
-							Hi! I was an optician who wanted a career change and came to General Assembly to start that. I love playing video games during my free time and wish to pursue a career in game design one day.
+							Hi! I was an optician who wanted a career change and came to
+							General Assembly to start that. I love playing video games during
+							my free time and wish to pursue a career in game design one day.
 						</p>
 						<br />
 						<p>
-							For Countlories I handled a lot of the frontend design and functionalities. I worked on majority of the styling for the webpage and setting up some of the CRUD to link towards our backend database.
+							For Countlories I handled a lot of the frontend design and
+							functionalities. I worked on majority of the styling for the
+							webpage and setting up some of the CRUD to link towards our
+							backend database.
 						</p>
 					</div>
 				</div>
 			</div>
 		</>
-	)
+	);
 }
 
 export default Team
