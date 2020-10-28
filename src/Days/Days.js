@@ -20,6 +20,7 @@ const Days = (props) => {
 	const [isToggled, setToggle] = useState(false)
 	const [dayToggle, setDayToggle] = useState(true)
 	const [create, setCreate] = useState(false)
+	const [currentFood, setCurrentFood] = useState('')
 
 	const handleCreate = (newFood) => {
 		// console.log('create', currentDay)
@@ -33,7 +34,7 @@ const Days = (props) => {
 	}
 
 	const handleUpdate = (food) => {
-		fetch(url + '/food/' + food._id, {
+		fetch(url + '/food/' + currentFood, {
 			method: 'put',
 			headers: {
 				'Content-Type': 'application/json',
@@ -45,13 +46,13 @@ const Days = (props) => {
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then(() => props.getDays())
+		}).then(() => props.getDays());
 	}
 
-	const selectFood = (food) => {
-		setSelectedFood(food)
-		// console.log('selectFood', selectedFood)
-	}
+	// const selectFood = (food) => {
+	// 	setSelectedFood(food)
+	// 	// console.log('selectFood', selectedFood)
+	// }
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -110,7 +111,7 @@ const Days = (props) => {
 												className='edit'
 												onClick={() => {
 													setCreate(false)
-													selectFood(food)
+													setCurrentFood(food._id)
 													setFormData(selectedFood)
 													setToggle(true)
 													setDayToggle(false)
