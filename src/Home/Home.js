@@ -42,15 +42,12 @@ const Home = () => {
 	return (
 		<div className='Home'>
 			<div className='home-buttons'>
-				<p className='delete-week' onClick={() => deleteDays()}>
-					<b>Delete This Week</b>&nbsp;
-					<i class="far fa-calendar-plus"></i>
-				</p>
-				<p className='new-week' onClick={() => createDays()}>
-					<b>Add New Week</b>&nbsp;
-					<i class="far fa-calendar-minus"></i>
-				</p>
-			</div>
+				<p className='delete-week' onClick={() => deleteDays()}>Clear</p>
+         <i class="far fa-calendar-minus"></i>
+        <p className='new-week' onClick={() => createDays()}>	Start Tracking!</p>
+         <i class="far fa-calendar-plus"></i>
+    </div>
+
 			<Route
 				exact
 				path='/'
