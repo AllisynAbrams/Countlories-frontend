@@ -12,14 +12,16 @@ const Home = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				// console.log('this is data', data.data)
-				setDays(data.data)
-				 console.log('this is days', days);
+				setDays(data.data) 
 			})
 	}
+
 
 	useEffect(() => {
 		getDays()
 	}, [])
+
+	console.log('this is days', days);
 
 	return (
 		<div className='Home'>
