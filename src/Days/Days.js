@@ -90,7 +90,9 @@ const Days = (props) => {
 									setToggle(true)
 									setDayToggle(false)
 								}}>
-								+
+								{/* + */}
+								{/* <i class="fas fa-plus-circle"></i> */}
+								<i class="far fa-plus-square"></i>
 							</p>
 							<div className='day-body'>
 								<p className='total'>Total</p>
@@ -113,10 +115,9 @@ const Days = (props) => {
 													setToggle(true)
 													setDayToggle(false)
 												}}>
-												Edit
-											</p>
+											<i class="fas fa-edit"></i></p>
 											<p className='x' onClick={() => deleteFood(food)}>
-												X
+											<i class="far fa-trash-alt"></i>
 											</p>
 										</>
 									)
