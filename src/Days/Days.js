@@ -118,12 +118,13 @@ const handleSelectDate = (date) => {
 										setCreate(false);
 										setCurrentDay(days._id);
 										setFormData(date);
-										setDate(days.date)
+										setDate(days.date);
 									}}>
 									Select Date
 								</p>
-								<h4 className="display-date">{days.date}</h4>
+								<h4 className='display-date'>{days.date}</h4>
 							</div>
+
 							<p
 								className='add'
 								onClick={() => {
@@ -135,7 +136,8 @@ const handleSelectDate = (date) => {
 								}}>
 								{/* + */}
 								{/* <i class="fas fa-plus-circle"></i> */}
-								<i class="far fa-plus-square"></i>
+								<p className='add-food'>Add Food</p>
+								<i class='far fa-plus-square'></i>
 							</p>
 							<div className='day-body'>
 								<p className='total'>Total</p>
@@ -144,7 +146,6 @@ const handleSelectDate = (date) => {
 								<p className='calories'>Calories</p>
 								<p className='time'>Time</p>
 								{days.food.map((food) => {
-
 									return (
 										<>
 											<p className='foods'>{food.foodItem}</p>
@@ -159,12 +160,13 @@ const handleSelectDate = (date) => {
 													setToggle(true);
 													setDayToggle(false);
 												}}>
-											<i class="fas fa-edit"></i></p>
+												<i class='fas fa-edit'></i>
+											</p>
 											<p className='x' onClick={() => deleteFood(food)}>
-											<i class="far fa-trash-alt" ></i>
+												<i class='far fa-trash-alt'></i>
 											</p>
 										</>
-									)
+									);
 								})}
 							</div>
 						</motion.div>
@@ -243,7 +245,7 @@ const handleSelectDate = (date) => {
 					</form>
 				</div>
 			</DateModal>
-			
+
 		</motion.div>
 	);
 }
