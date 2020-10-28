@@ -70,6 +70,12 @@ const Days = (props) => {
 	let displayDays = <h1>Loading...</h1>
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
+			console.log('food', days.food)
+			let totalCalories = days.food.reduce(
+				(accum, item) => accum + item.calories,
+				0
+			)
+			
 			return (
 				<AnimatePresence>
 					{dayToggle && (
@@ -97,11 +103,12 @@ const Days = (props) => {
 							</p>
 							<div className='day-body'>
 								<p className='total'>Total</p>
-								<p className='total-amount'></p>
+								<p className='total-amount'>{totalCalories}</p>
 								<p className='foods'>Food</p>
 								<p className='calories'>Calories</p>
 								<p className='time'>Time</p>
 								{days.food.map((food) => {
+
 									return (
 										<>
 											<p className='foods'>{food.foodItem}</p>
@@ -122,7 +129,7 @@ const Days = (props) => {
 												X
 											</p>
 										</>
-									);
+									)
 								})}
 							</div>
 						</motion.div>

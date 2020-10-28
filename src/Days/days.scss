@@ -104,6 +104,7 @@
 
 			.total-amount {
 				grid-column: 2 / 3;
+				grid-row: 1 / 2;
 			}
 
 			.foods {
@@ -112,6 +113,10 @@
 
 			.calories {
 				grid-column: 2 / 3;
+			}
+
+			.time:first-child {
+				grid-column: 3 / 5;
 			}
 
 			.time {
