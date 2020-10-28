@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 
 const Home = () => {
 	const url = 'https://countlories.herokuapp.com'
-
+	
 	const [days, setDays] = useState([])
 
 	const getDays = () => {
