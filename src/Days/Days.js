@@ -127,7 +127,7 @@ const Days = (props) => {
 												}}>
 											<i class="fas fa-edit"></i></p>
 											<p className='x' onClick={() => deleteFood(food)}>
-											<i class="far fa-trash-alt"></i>
+											<i class="far fa-trash-alt" ></i>
 											</p>
 										</>
 									)

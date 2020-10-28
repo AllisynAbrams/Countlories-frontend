@@ -2,35 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 .team-page {
-    // in honor of Joe's typos we are team memebers instead of members
+	// in honor of Joe's typos we are team memebers instead of members
 
 	.memeber {
 		margin: 10px;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
 		padding: 5px;
 		background-color: #1e1e1e;
 		border-radius: 10px;
 
 		img {
-			width: 100%;
+			width: 70%;
 			border-radius: 20px;
-			grid-column: 1 / 2;
-			grid-row: 1 / 4;
+			margin: 10px auto;
 		}
 
 		h3 {
 			margin-top: 15px;
-			margin-bottom: 0;
-			grid-column: 2 / 3;
+			margin-bottom: 15px;
 			color: #6252cb;
 			font-family: 'Raleway', sans-serif;
 		}
 
 		p {
-			margin-bottom: 0;
-			grid-column: 2 / 3;
+			margin: 10px 20px 10px 20px;
 			color: white;
 			font-family: 'Quicksand', sans-serif;
 		}
@@ -38,28 +32,45 @@
 }
 
 @media screen and (min-width: 768px) {
-
 	.team-page {
+		display: grid;
+
 		.memeber {
-			h3 {
-                margin-top: 30px;
-                font-size: 2rem;
-            }
-            
-            p {
-                font-size: 20px;
-            }
+			width: 60%;
+			margin: 15px auto;
 		}
 	}
 }
 
 @media screen and (min-width: 1024px) {
+	.team-page {
+		grid-template-columns: repeat(3, 1fr);
 
-    .team-page {
-        .memeber {
-            width: 75%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
+		.memeber {
+			width: 90%;
+			margin: 15px;
+
+			img {
+				width: 75%;
+			}
+
+			p {
+				font-size: 19px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.team-page {
+		.memeber {
+			img {
+				width: 95%;
+			}
+
+			p {
+				font-size: 26px;
+			}
+		}
+	}
 }
