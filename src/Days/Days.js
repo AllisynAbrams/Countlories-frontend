@@ -7,6 +7,7 @@ const Days = (props) => {
 	// console.log('this is props', props)
 	// console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
+	
 	const emptyFood = {
 		foodItem: String,
 		calories: Number,
@@ -19,6 +20,7 @@ const Days = (props) => {
 	const [isToggled, setToggle] = useState(false)
 	const [dayToggle, setDayToggle] = useState(true)
 	const [create, setCreate] = useState(false)
+	const [currentFood, setCurrentFood] = useState('')
 
 	const handleCreate = (newFood) => {
 		// console.log('create', currentDay)
@@ -32,19 +34,19 @@ const Days = (props) => {
 	}
 
 	const handleUpdate = (food) => {
-		fetch(url + '/food/' + food._id, {
+		fetch(url + '/food/' + currentFood, {
 			method: 'put',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then(() => props.getDays())
+		}).then(() => props.getDays());
 	}
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then(() => props.getDays())
+		}).then(() => props.getDays());
 	}
 
 	// const selectFood = (food) => {
@@ -64,6 +66,7 @@ const Days = (props) => {
 		console.log('form data', formData)
 	}
 
+	
 	let displayDays = <h1>Loading...</h1>
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
@@ -108,7 +111,7 @@ const Days = (props) => {
 												className='edit'
 												onClick={() => {
 													setCreate(false)
-													setSelectedFood(food)
+													setCurrentFood(food._id)
 													setFormData(selectedFood)
 													setToggle(true)
 													setDayToggle(false)
@@ -119,7 +122,7 @@ const Days = (props) => {
 												X
 											</p>
 										</>
-									)
+									);
 								})}
 							</div>
 						</motion.div>
@@ -129,6 +132,7 @@ const Days = (props) => {
 		})
 	}
 
+ 
 	return (
 		<motion.div
 			className='Days'
