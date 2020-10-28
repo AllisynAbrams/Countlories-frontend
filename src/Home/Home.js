@@ -31,7 +31,7 @@ const Home = () => {
 
 	const createDays = (day) => {
 		fetch(url + '/seed', {
-			method: 'post',
+			method: 'get',
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -43,10 +43,10 @@ const Home = () => {
 		<div className='Home'>
 			<div className='home-buttons'>
 				<p className='delete-week' onClick={() => deleteDays()}>
-					Delete This Week
+					Clear
 				</p>
 				<p className='new-week' onClick={() => createDays()}>
-					Add New Week
+					Start Tracking!
 				</p>
 			</div>
 			<Route
