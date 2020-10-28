@@ -90,7 +90,7 @@ const handleSelectDate = (date) => {
 	}
 
 	
-	let displayDays = <h1>Loading...</h1>
+	let displayDays = <h4>Get ready for next week's food journey by clicking the Add New Week button above.</h4>
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
 			console.log('food', days.food)
