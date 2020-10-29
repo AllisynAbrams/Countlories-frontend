@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './days.scss'
 import Modal from '../Modal/Modal'
-import DateModal from '../DateModal/DateModal';
+import DateModal from '../DateModal/DateModal'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Days = (props) => {
 	// console.log('this is props', props)
 	// console.log('day id props', props.days)
 	const url = 'https://countlories.herokuapp.com'
-	
+
 	const emptyFood = {
 		foodItem: String,
 		calories: Number,
@@ -19,7 +19,7 @@ const Days = (props) => {
 	const [selectedFood, setSelectedFood] = useState(emptyFood)
 	const [formData, setFormData] = useState({})
 	const [isToggled, setToggle] = useState(false)
-	const [isDateToggled, setDateToggle] = useState(false);
+	const [isDateToggled, setDateToggle] = useState(false)
 	const [dayToggle, setDayToggle] = useState(true)
 	const [create, setCreate] = useState(false)
 	const [currentFood, setCurrentFood] = useState('')
@@ -36,16 +36,16 @@ const Days = (props) => {
 		}).then(() => props.getDays())
 	}
 
-const handleSelectDate = (date) => {
-	// console.log('create', currentDay)
-	fetch(`https://countlories.herokuapp.com/${currentDay}`, {
-		method: 'put',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(date),
-	}).then(() => props.getDays());
-};
+	const handleSelectDate = (date) => {
+		// console.log('create', currentDay)
+		fetch(`https://countlories.herokuapp.com/${currentDay}`, {
+			method: 'put',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(date),
+		}).then(() => props.getDays())
+	}
 
 	const handleUpdate = (food) => {
 		fetch(url + '/food/' + currentFood, {
@@ -54,19 +54,14 @@ const handleSelectDate = (date) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then(() => props.getDays());
+		}).then(() => props.getDays())
 	}
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then(() => props.getDays());
+		}).then(() => props.getDays())
 	}
-
-	// const selectFood = (food) => {
-	// 	setSelectedFood(food)
-	// 	// console.log('selectFood', selectedFood)
-	// }
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -76,21 +71,23 @@ const handleSelectDate = (date) => {
 	}
 
 	const handleSubmitDate = (e) => {
-		e.preventDefault();
-		handleSelectDate(formData);
-		setDayToggle(true);
-		setDateToggle(false);
-	};
-
-
+		e.preventDefault()
+		handleSelectDate(formData)
+		setDayToggle(true)
+		setDateToggle(false)
+	}
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 		console.log('form data', formData)
 	}
 
-	
-	let displayDays = <h1>Loading...</h1>
+	let displayDays = (
+		<h4>
+			Get ready for next week's food journey by clicking the Add New Week button
+			above.
+		</h4>
+	)
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
 			console.log('food', days.food)
@@ -98,7 +95,7 @@ const handleSelectDate = (date) => {
 				(accum, item) => accum + item.calories,
 				0
 			)
-			
+
 			return (
 				<AnimatePresence>
 					{dayToggle && (
@@ -113,12 +110,12 @@ const handleSelectDate = (date) => {
 								<p
 									className='select-date'
 									onClick={() => {
-										setDateToggle(true);
-										setDayToggle(false);
-										setCreate(false);
-										setCurrentDay(days._id);
-										setFormData(date);
-										setDate(days.date);
+										setDateToggle(true)
+										setDayToggle(false)
+										setCreate(false)
+										setCurrentDay(days._id)
+										setFormData(date)
+										setDate(days.date)
 									}}>
 									Select Date
 								</p>
@@ -128,11 +125,11 @@ const handleSelectDate = (date) => {
 							<p
 								className='add'
 								onClick={() => {
-									setCreate(true);
-									setFormData(emptyFood);
-									setCurrentDay(days._id);
-									setToggle(true);
-									setDayToggle(false);
+									setCreate(true)
+									setFormData(emptyFood)
+									setCurrentDay(days._id)
+									setToggle(true)
+									setDayToggle(false)
 								}}>
 								{/* + */}
 								{/* <i class="fas fa-plus-circle"></i> */}
@@ -154,11 +151,11 @@ const handleSelectDate = (date) => {
 											<p
 												className='edit'
 												onClick={() => {
-													setCreate(false);
-													setCurrentFood(food._id);
-													setFormData(selectedFood);
-													setToggle(true);
-													setDayToggle(false);
+													setCreate(false)
+													setCurrentFood(food._id)
+													setFormData(selectedFood)
+													setToggle(true)
+													setDayToggle(false)
 												}}>
 												<i class='fas fa-edit'></i>
 											</p>
@@ -166,17 +163,16 @@ const handleSelectDate = (date) => {
 												<i class='far fa-trash-alt'></i>
 											</p>
 										</>
-									);
+									)
 								})}
 							</div>
 						</motion.div>
 					)}
 				</AnimatePresence>
-			);
+			)
 		})
 	}
 
- 
 	return (
 		<motion.div
 			className='Days'
@@ -222,14 +218,12 @@ const handleSelectDate = (date) => {
 				</div>
 			</Modal>
 			{displayDays}
-
 			<DateModal
 				isDateToggled={isDateToggled}
 				setDateToggle={setDateToggle}
 				setDayToggle={setDayToggle}>
 				<div className='date-form'>
-					<form
-						onSubmit={handleSubmitDate}>
+					<form onSubmit={handleSubmitDate}>
 						<p>What is the date?</p>
 						<input
 							type='date'
@@ -245,9 +239,8 @@ const handleSelectDate = (date) => {
 					</form>
 				</div>
 			</DateModal>
-
 		</motion.div>
-	);
+	)
 }
 
 export default Days
