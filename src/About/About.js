@@ -4,18 +4,22 @@ import './about.scss'
 import { motion } from 'framer-motion'
 
 const About = () => {
+
+	// state to set opacity and transitions using Framer Motion library 
+	// onClick of the H1 (what is countlories?) will update state and change the opacity value
 	const [isToggled, setIsToggled] = useState(0)
 
 
 	return (
 		<div className='about'>
+			{/* to make Framer Motion work we need to change all the elements to motion.element */}
 			<motion.h1
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 2 }}
+				initial={{ opacity: 0 }} /*starting opacity*/
+				animate={{ opacity: 1 }} /*final opacity*/
+				transition={{ duration: 2 }} /*transtion time between opacity levels*/
 				onClick={() =>
 					setIsToggled((prevValue) => {
-						return prevValue ? 0 : 1
+						return prevValue ? 0 : 1;
 					})
 				}>
 				What is Countlories?
@@ -40,7 +44,7 @@ const About = () => {
 				alt='img'
 			/>
 		</div>
-	)
+	);
 }
 
 export default About

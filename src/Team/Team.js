@@ -6,14 +6,18 @@ import Lien from './Lien'
 import Jake from './Jake'
 
 const Team = () => {
-	const [toggle, setToggle] = useState(true)
-	const [allisyn, setAllisyn] = useState(false)
-	const [lien, setLien] = useState(false)
-	const [jake, setJake] = useState(false)
+	// toggle state to set mount element on and off screen using opacity levels (Framer Motion library)
+	// team memeber state to show member info
+	// onClick of eaach team memeber will update 1. toggle state and change the opacity value 2. show member information
+	const [toggle, setToggle] = useState(true);
+	const [allisyn, setAllisyn] = useState(false);
+	const [lien, setLien] = useState(false);
+	const [jake, setJake] = useState(false);
 
 	return (
 		<>
 			<div className='team-page'>
+				{/* animate presence is a component from Framer Motion that mounts and dismounts html elements - one for each team member; anything between AnimatePresence component is considered a child of the component and can be passed down as a prop named {children} */}
 				<AnimatePresence>
 					{toggle && (
 						<>
@@ -23,8 +27,8 @@ const Team = () => {
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 								onClick={() => {
-									setToggle(false)
-									setAllisyn(true)
+									setToggle(false);
+									setAllisyn(true);
 								}}>
 								<h3>Allisyn Abrams</h3>
 								<img
@@ -38,8 +42,8 @@ const Team = () => {
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 								onClick={() => {
-									setToggle(false)
-									setLien(true)
+									setToggle(false);
+									setLien(true);
 								}}>
 								<h3>Lien Nguyen</h3>
 								<img
@@ -53,8 +57,8 @@ const Team = () => {
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 								onClick={() => {
-									setToggle(false)
-									setJake(true)
+									setToggle(false);
+									setJake(true);
 								}}>
 								<h3>Jake Nguyen</h3>
 								<img src='https://i.imgur.com/uCzjr9m.jpg' alt='jake' />
@@ -142,7 +146,9 @@ const Team = () => {
 										frontend for Countlories. I did the basic React component
 										structures, majority of the styling, as well as some of the
 										functionality to connect to our backend to create, edit, and
-										delete food items. Implemented the use of Framer Motion, an animation library, to add animation effects and modals to our team and home page.
+										delete food items. Implemented the use of Framer Motion, an
+										animation library, to add animation effects and modals to
+										our team and home page.
 									</p>
 								</div>
 							</Jake>
@@ -151,7 +157,7 @@ const Team = () => {
 				</AnimatePresence>
 			</div>
 		</>
-	)
+	);
 }
 
 export default Team

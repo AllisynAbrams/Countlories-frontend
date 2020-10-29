@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+// using deconstructed props from parent component Team
+// children is a prop from Framer Motion to know what is wrapped inside the AnimatePresence component
 const Jake = ({ setToggle, jake, setJake, children }) => {
 	return (
 		<AnimatePresence>

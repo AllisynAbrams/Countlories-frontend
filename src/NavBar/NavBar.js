@@ -4,6 +4,7 @@ import './navbar.scss'
 
 const NavBar = () => {
 
+	// utilized Reactstrap for navbar
 	const [collapsed, setCollapsed] = useState(true)
 
 	const toggleNavbar = () => setCollapsed(!collapsed)
