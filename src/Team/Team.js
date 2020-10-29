@@ -143,7 +143,7 @@ const Team = () => {
 										frontend for Countlories. I did the basic React component
 										structures, majority of the styling, as well as some of the
 										functionality to connect to our backend to create, edit, and
-										delete food items.
+										delete food items. Implemented the use of Framer Motion, an animation library, to add animation effects and modals to our team and home page.
 									</p>
 								</div>
 							</Jake>
