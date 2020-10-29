@@ -6,6 +6,7 @@ import NavBar from './NavBar/NavBar'
 import Team from './Team/Team'
 import About from './About/About'
 import Home from './Home/Home'
+import Footer from './Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 					<About />
 				</Route>
 			</Switch>
+			<Footer />
 		</div>
 	)
 }

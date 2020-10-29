@@ -58,7 +58,7 @@ const Home = () => {
 				render={(rp) => <Days {...rp} days={days} getDays={getDays} />}
 			/>
 		</div>
-	)
+	);
 }
 
 export default Home
