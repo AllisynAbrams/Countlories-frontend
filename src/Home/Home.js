@@ -6,8 +6,10 @@ import './home.scss'
 const Home = () => {
 	const url = 'https://countlories.herokuapp.com'
 
+	//  state to set day "cards" and the data they hold inside of them
 	const [days, setDays] = useState([])
 
+	//  making the API call to deployed backend URL
 	const getDays = () => {
 		fetch(url)
 			.then((res) => res.json())
@@ -17,18 +19,21 @@ const Home = () => {
 			})
 	}
 
+	// show seeded empty week on mount
 	useEffect(() => {
 		getDays()
 	}, [])
 
 	// console.log('this is days', days)
 
+	// delete all days
 	const deleteDays = () => {
 		fetch(url, {
 			method: 'delete',
 		}).then(() => getDays())
 	}
 
+	// re-seeding empty week
 	const createDays = (day) => {
 		fetch(url + '/seed', {
 			method: 'get',
