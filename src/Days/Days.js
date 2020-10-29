@@ -119,7 +119,7 @@ const Days = (props) => {
 									}}>
 									Select Date
 								</p>
-								<h4 className='display-date'>{days.date}</h4>
+								<h5 className='display-date'>{days.date}</h5>
 							</div>
 
 							<p
