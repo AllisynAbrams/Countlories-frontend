@@ -21,7 +21,7 @@ const Home = () => {
 		getDays()
 	}, [])
 
-	console.log('this is days', days)
+	// console.log('this is days', days)
 
 	const deleteDays = () => {
 		fetch(url, {
