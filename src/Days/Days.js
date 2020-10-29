@@ -7,23 +7,30 @@ import { motion, AnimatePresence } from 'framer-motion'
 const Days = (props) => {
 	// console.log('this is props', props)
 	// console.log('day id props', props.days)
-	const url = 'https://countlories.herokuapp.com'
+	const url = 'https://countlories.herokuapp.com';
 
 	const emptyFood = {
 		foodItem: String,
 		calories: Number,
 		time: String,
-	}
+	};
 
-	const [currentDay, setCurrentDay] = useState('')
-	const [selectedFood, setSelectedFood] = useState(emptyFood)
-	const [formData, setFormData] = useState({})
-	const [isToggled, setToggle] = useState(false)
-	const [isDateToggled, setDateToggle] = useState(false)
-	const [dayToggle, setDayToggle] = useState(true)
-	const [create, setCreate] = useState(false)
-	const [currentFood, setCurrentFood] = useState('')
-	const [date, setDate] = useState('')
+	// on click of the Add Food and Select Date buttons within each "day card" sets currentDay and add foods and date to the backend DB
+	const [currentDay, setCurrentDay] = useState('');
+	// sets formData to empty object
+	const [formData, setFormData] = useState({});
+	// toggle between day cards and add new food and edit food forms
+	const [isToggled, setToggle] = useState(false);
+	// toggle between day cards and select date form
+	const [isDateToggled, setDateToggle] = useState(false);
+	// toggle between day cards and food or date form
+	const [dayToggle, setDayToggle] = useState(true);
+	// used to determine whether we are submitting a create or edit fetch call
+	const [create, setCreate] = useState(false);
+	// set the food we are editing and send edits to the backend DB
+	const [currentFood, setCurrentFood] = useState('');
+	// set the date we are editing
+	const [date, setDate] = useState('');
 
 	const handleCreate = (newFood) => {
 		// console.log('create', currentDay)
@@ -33,8 +40,8 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(newFood),
-		}).then(() => props.getDays())
-	}
+		}).then(() => props.getDays());
+	};
 
 	const handleSelectDate = (date) => {
 		// console.log('create', currentDay)
@@ -44,9 +51,10 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(date),
-		}).then(() => props.getDays())
-	}
+		}).then(() => props.getDays());
+	};
 
+	// onClick of edit button we change the state of currentFood to be that food's unique _id and then use that _id in our fetch call based on the defined backend controller route for editing an individual food
 	const handleUpdate = (food) => {
 		fetch(url + '/food/' + currentFood, {
 			method: 'put',
@@ -54,47 +62,52 @@ const Days = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(food),
-		}).then(() => props.getDays())
-	}
+		}).then(() => props.getDays());
+	};
 
 	const deleteFood = (food) => {
 		fetch(url + '/food/' + food._id, {
 			method: 'delete',
-		}).then(() => props.getDays())
-	}
+		}).then(() => props.getDays());
+	};
 
+	// if create state is true then use the handleCreate function in handleSubmit()/onSubmit(), if create is false then use handleUpdate function in handleSubmit()/onSubmit()
 	const handleSubmit = (e) => {
-		e.preventDefault()
-		create === true ? handleCreate(formData) : handleUpdate(formData)
-		setDayToggle(true)
-		setToggle(false)
-	}
+		e.preventDefault();
+		create === true ? handleCreate(formData) : handleUpdate(formData);
+		setDayToggle(true);
+		setToggle(false);
+	};
 
+	// sets the selected date
 	const handleSubmitDate = (e) => {
-		e.preventDefault()
-		handleSelectDate(formData)
-		setDayToggle(true)
-		setDateToggle(false)
-	}
+		e.preventDefault();
+		handleSelectDate(formData);
+		setDayToggle(true);
+		setDateToggle(false);
+	};
+
 
 	const handleChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value })
-		console.log('form data', formData)
-	}
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+		// console.log('form data', formData);
+	};
 
+	// if there is no data in the days array (state props from Home comp) then render the h4, otherwise render days and food data
 	let displayDays = (
 		<h4>
 			Get ready for next week's food journey by clicking the Add New Week button
 			above.
 		</h4>
-	)
+	);
 	if (props.days[0]) {
 		displayDays = props.days.map((days) => {
-			console.log('food', days.food)
+			// console.log('food', days.food);
+			// reduce function takes the current calories value and adds it to the next item (days) as we loop through the array (first argument is current value, second argument is item we are looping through)
 			let totalCalories = days.food.reduce(
 				(accum, item) => accum + item.calories,
 				0
-			)
+			);
 
 			return (
 				<AnimatePresence>
@@ -110,12 +123,12 @@ const Days = (props) => {
 								<p
 									className='select-date'
 									onClick={() => {
-										setDateToggle(true)
-										setDayToggle(false)
-										setCreate(false)
-										setCurrentDay(days._id)
-										setFormData(date)
-										setDate(days.date)
+										setDateToggle(true);
+										setDayToggle(false);
+										setCreate(false);
+										setCurrentDay(days._id);
+										setFormData(date);
+										setDate(days.date);
 									}}>
 									Select Date
 								</p>
@@ -125,14 +138,12 @@ const Days = (props) => {
 							<p
 								className='add'
 								onClick={() => {
-									setCreate(true)
-									setFormData(emptyFood)
-									setCurrentDay(days._id)
-									setToggle(true)
-									setDayToggle(false)
+									setCreate(true);
+									setFormData(emptyFood);
+									setCurrentDay(days._id);
+									setToggle(true);
+									setDayToggle(false);
 								}}>
-								{/* + */}
-								{/* <i class="fas fa-plus-circle"></i> */}
 								<p className='add-food'>Add Food</p>
 								<i class='far fa-plus-square'></i>
 							</p>
@@ -151,11 +162,10 @@ const Days = (props) => {
 											<p
 												className='edit'
 												onClick={() => {
-													setCreate(false)
-													setCurrentFood(food._id)
-													setFormData(selectedFood)
-													setToggle(true)
-													setDayToggle(false)
+													setCreate(false);
+													setCurrentFood(food._id);
+													setToggle(true);
+													setDayToggle(false);
 												}}>
 												<i class='fas fa-edit'></i>
 											</p>
@@ -163,14 +173,14 @@ const Days = (props) => {
 												<i class='far fa-trash-alt'></i>
 											</p>
 										</>
-									)
+									);
 								})}
 							</div>
 						</motion.div>
 					)}
 				</AnimatePresence>
-			)
-		})
+			);
+		});
 	}
 
 	return (
@@ -179,15 +189,14 @@ const Days = (props) => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}>
+			{/* Modal component to render the food/edit form */}
 			<Modal
 				isToggled={isToggled}
 				setToggle={setToggle}
 				setDayToggle={setDayToggle}>
 				<div className='form'>
-					<form
-						food={emptyFood}
-						selectFood={selectedFood}
-						onSubmit={handleSubmit}>
+					{/* part of handleSubmit function is determined by ternary operator (to either create/post or edit/put */}
+					<form food={emptyFood} onSubmit={handleSubmit}>
 						<p>What did you eat?</p>
 						<input
 							type='text'
@@ -218,6 +227,7 @@ const Days = (props) => {
 				</div>
 			</Modal>
 			{displayDays}
+			{/* DateModal component to render the select date form */}
 			<DateModal
 				isDateToggled={isDateToggled}
 				setDateToggle={setDateToggle}
@@ -240,7 +250,7 @@ const Days = (props) => {
 				</div>
 			</DateModal>
 		</motion.div>
-	)
+	);
 }
 
 export default Days
