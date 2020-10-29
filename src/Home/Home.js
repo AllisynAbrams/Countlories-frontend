@@ -42,11 +42,15 @@ const Home = () => {
 	return (
 		<div className='Home'>
 			<div className='home-buttons'>
-				<p className='delete-week' onClick={() => deleteDays()}>Clear</p>
-         <i class="far fa-calendar-minus"></i>
-        <p className='new-week' onClick={() => createDays()}>	Start Tracking!</p>
-         <i class="far fa-calendar-plus"></i>
-    </div>
+				<div className='delete-week' onClick={() => deleteDays()}>
+					<p>Clear</p>
+					<i class='far fa-calendar-minus'></i>
+				</div>
+				<div className='new-week' onClick={() => createDays()}>
+					<p>Add New Week</p>
+					<i class='far fa-calendar-plus'></i>
+				</div>
+			</div>
 
 			<Route
 				exact
@@ -54,7 +58,7 @@ const Home = () => {
 				render={(rp) => <Days {...rp} days={days} getDays={getDays} />}
 			/>
 		</div>
-	)
+	);
 }
 
 export default Home
