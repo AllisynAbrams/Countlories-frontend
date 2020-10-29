@@ -107,8 +107,7 @@ const Team = () => {
 							<Lien setToggle={setToggle} lien={lien} setLien={setLien}>
 								<div>
 									<p>
-										Hello! I'm an aspired full stack software engineer student
-										at General Assembly.
+										Hello! I'm Lien. Prior to the world of software development, my professional background was in finance. I've always been interested in tech and figure it was a perfect time to pursue my dream. As a current student of General Assembly, I am excited to incoporate my financial experience with software development.  
 									</p>
 									<br />
 									<p>
