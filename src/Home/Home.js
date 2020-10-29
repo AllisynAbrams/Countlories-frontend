@@ -5,7 +5,7 @@ import './home.scss'
 
 const Home = () => {
 	const url = 'https://countlories.herokuapp.com'
-	
+
 	const [days, setDays] = useState([])
 
 	const getDays = () => {
