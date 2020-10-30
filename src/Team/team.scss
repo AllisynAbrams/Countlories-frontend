@@ -12,12 +12,16 @@
 		border-radius: 10px;
 		font-family: 'Quicksand', sans-serif;
 	}
-
+	
 	.memeber {
 		margin: 10px;
 		padding: 5px;
 		background-color: #1e1e1e;
 		border-radius: 10px;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 2px 2px 3px #050505b4;
+		}
 
 		img {
 			width: 70%;
@@ -48,7 +52,7 @@
 @media screen and (min-width: 1024px) {
 	.team-page {
 		grid-template-columns: repeat(3, 1fr);
-
+	
 		.allisyn, .lien, .jake {
 			padding: 20px;
 			p {
