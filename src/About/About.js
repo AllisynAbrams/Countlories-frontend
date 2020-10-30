@@ -28,13 +28,11 @@ const About = () => {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: isToggled }}
 				transition={{ duration: 1 }}>
-				Countlories is an all purpose food/calorie tracker. This response web
-				app help user track and count their daily food and calorie consumption
+				Countlories is an all purpose food/calorie tracker. This responsive web
+				app helps a user track and count their daily food and calorie consumption
 				by displaying food/calories and total calories by day. It incorporates a
 				form which allows a user to add a new food and its calories to a given
-				day, as well as edit a food. As a user adds new foods, the daily total
-				calorie intake will increase. This app can be used to track
-				foods/calories as consumed or as a weekly food/calorie planner.
+				day, as well as edit a food, and another form to select and edit the date. As a user adds new foods and associated calories, the daily total calorie intake increases. This app can be used to track foods/calories as consumed or as a weekly food/calorie planner.
 			</motion.p>
 			<motion.img
 				initial={{ opacity: 0 }}

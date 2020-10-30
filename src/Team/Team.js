@@ -78,24 +78,28 @@ const Team = () => {
 								setAllisyn={setAllisyn}>
 								<div>
 									<p>
-										Hi there! I'm Allisyn, an aspiring software developer. I am
-										passionate about usability, visual aesthetics, and bringing
-										a sense of ease and human connection to our screens through
-										the creation of thoughtful, solution-oriented products and
-										intuitive functionality. My background in retail buying and
-										planning has helped me develop a user-first/customer-first
-										mindset which I carry with me throughout all my work.
+										Hi there! I'm Allisyn, an aspiring software developer. My
+										background in e-commerce/retail buying and planning has led
+										me to develop a user-first/customer-first and analytical
+										mindset, which I carry with me throughout my work. My goal
+										as a software developer is to bring a sense of ease and
+										human connection to our screens through the creation of
+										thoughtful, solution-oriented products with intuitive
+										functionality.
 									</p>
 									<br />
 									<p>
-										I took on the role of team coordinator, acting as the GitHub
-										gatekeeper for our project repos and helping to maintain
-										smooth process flows and task delegations through consistent
-										communication and the use of our collaboration tool, Notion.
-										I helped develop the UI/UX concepts and created our
-										wireframes with MockFlow. Additionally.....[add more - help
-										test in postman, debug edit food button, select date, some
-										styling]
+										For the Countlories project I took on the role of team
+										coordinator/tech lead. I was responsible for managing our
+										GitHub project repositories, back end and front end
+										deployment/testing, and the overall Git and project
+										workflows. I helped to maintain a smooth workflow and task
+										delegation process through consistent team communication and
+										the use of our team collaboration tool on Notion.
+										Additionally, I created our UI wireframes using MockFlow,
+										helped test backend routes in Postman, de-bugged front end
+										issues, worked on the feature to select a date, and did some
+										styling with SCSS.
 									</p>
 								</div>
 							</Allisyn>
@@ -111,7 +115,12 @@ const Team = () => {
 							<Lien setToggle={setToggle} lien={lien} setLien={setLien}>
 								<div>
 									<p>
-										Hello! I'm Lien. Prior to the world of software development, my professional background was in finance. I've always been interested in tech and figure it was a perfect time to pursue my dream. As a current student of General Assembly, I am excited to incoporate my financial experience with software development.  
+										Hello! I'm Lien. Prior to the world of software development,
+										my professional background was in finance. I've always been
+										interested in tech and figure it was a perfect time to
+										pursue my dream. As a current student of General Assembly, I
+										am excited to incoporate my financial experience with
+										software development.
 									</p>
 									<br />
 									<p>
