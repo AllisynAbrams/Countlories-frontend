@@ -22,7 +22,7 @@ const About = () => {
 						return prevValue ? 0 : 1;
 					})
 				}>
-				What is Countlories? <br /> <span>Click here to learn more</span>
+				What is Countlories?
 			</motion.h1>
 			<motion.p
 				initial={{ opacity: 0 }}
